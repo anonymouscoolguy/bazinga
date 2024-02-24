@@ -12,6 +12,39 @@ public class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
     private final Map<Expr, Integer> locals = new HashMap<>();
 
     Interpreter() {
+        globals.define("Array", new BazingaCallable() {
+            @Override
+            public int arity() {
+                return 1;
+            }
+
+            @Override
+            public Object call(Interpreter interpreter, List<Object> arguments) {
+                int size = (int) (double) arguments.get(0);
+                return new BazingaArray(size);
+            }
+        });
+
+        globals.define("stringToArray", new BazingaCallable() {
+            @Override
+            public int arity() {
+                return 1;
+            }
+
+            @Override
+            public Object call(Interpreter interpreter, List<Object> arguments) {
+                String s = (String) arguments.get(0);
+                char[] stringCharacterArray = s.toCharArray();
+                Object[] stringObjectArray = new Object[stringCharacterArray.length];
+
+                for (int i = 0; i < stringCharacterArray.length; i++) {
+                    stringObjectArray[i] = stringCharacterArray[i];
+                }
+
+                return new BazingaArray(stringObjectArray);
+            }
+        });
+
         globals.define("clock", new BazingaCallable() {
             @Override
             public int arity() {
@@ -26,19 +59,6 @@ public class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
             @Override
             public String toString() {
                 return "<native fn>";
-            }
-        });
-
-        globals.define("Array", new BazingaCallable() {
-            @Override
-            public int arity() {
-                return 1;
-            }
-
-            @Override
-            public Object call(Interpreter interpreter, List<Object> arguments) {
-                int size = (int) (double) arguments.get(0);
-                return new BazingaArray(size);
             }
         });
     }

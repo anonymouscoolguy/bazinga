@@ -10,6 +10,11 @@ public class BazingaArray extends BazingaInstance {
         elements = new Object[size];
     }
 
+    BazingaArray(Object[] elements) {
+        super(null);
+        this.elements = elements;
+    }
+
     @Override
     Object get(Token name) {
         if (name.lexeme.equals("get")) {
