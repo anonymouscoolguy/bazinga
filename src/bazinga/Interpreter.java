@@ -33,15 +33,10 @@ public class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
 
             @Override
             public Object call(Interpreter interpreter, List<Object> arguments) {
-                String s = (String) arguments.get(0);
-                char[] stringCharacterArray = s.toCharArray();
-                Object[] stringObjectArray = new Object[stringCharacterArray.length];
+                String string = (String) arguments.get(0);
+                Object[] stringArray = string.split("");
 
-                for (int i = 0; i < stringCharacterArray.length; i++) {
-                    stringObjectArray[i] = stringCharacterArray[i];
-                }
-
-                return new BazingaArray(stringObjectArray);
+                return new BazingaArray(stringArray);
             }
         });
 
