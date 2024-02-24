@@ -1,5 +1,8 @@
 package bazinga;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -38,22 +41,30 @@ public class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
 
                 return new BazingaArray(stringArray);
             }
-        });
-
-        globals.define("clock", new BazingaCallable() {
-            @Override
-            public int arity() {
-                return 0;
-            }
-
-            @Override
-            public Object call(Interpreter interpreter, List<Object> arguments) {
-                return (double) System.currentTimeMillis() / 1000.0;
-            }
 
             @Override
             public String toString() {
                 return "<native fn>";
+            }
+        });
+
+        globals.define("readFile", new BazingaCallable() {
+            @Override
+            public int arity() {
+                return 1;
+            }
+
+            @Override
+            public Object call(Interpreter interpreter, List<Object> arguments) {
+                String filePath = (String) arguments.get(0);
+                String content;
+                try {
+                    content = Files.readString(Paths.get(filePath));
+                } catch (IOException e) {
+                    throw new RuntimeError("File path '" + filePath + "' was not found.");
+                }
+
+                return content;
             }
         });
     }
