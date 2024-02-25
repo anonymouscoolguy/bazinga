@@ -1,0 +1,42 @@
+// This is the Standard Library of the Bazinga! programming language.
+
+// ----- Linked List ------
+class Node {
+
+    init(data) {
+        this.data = data;
+        this.next = nil;
+    }
+
+}
+
+class LinkedList {
+    
+    init() {
+        this.head = nil;
+    }
+
+    append(data) {
+        var newNode = Node(data);
+        if (this.head == nil) {
+            this.head = newNode;
+        } else {
+            var currentNode = this.head;
+            while (currentNode.next != nil) {
+                currentNode = currentNode.next;
+            }
+            currentNode.next = newNode;
+        }
+    }
+
+    toString() {
+        var currentNode = this.head;
+        while (currentNode != nil) {
+            print currentNode.data;
+            currentNode = currentNode.next;
+        }
+    }
+
+}
+
+// TODO: Any data type -> String function
