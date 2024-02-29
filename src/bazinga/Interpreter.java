@@ -28,6 +28,57 @@ public class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
             }
         });
 
+        globals.define("number", new BazingaCallable() {
+            @Override
+            public int arity() {
+                return 1;
+            }
+
+            @Override
+            public Object call(Interpreter interpreter, List<Object> arguments) {
+                Object obj = arguments.get(0);
+
+                if (obj instanceof String)
+                    return Double.valueOf((String) obj);
+                else if (obj instanceof Boolean) {
+                    Boolean bool = (Boolean) obj;
+                    if (bool) {
+                        return (Double) 1.0;
+                    } else {
+                        return (Double) 0.0;
+                    }
+                }
+
+                throw new RuntimeError("Unsupported type.");
+            }
+
+            @Override
+            public String toString() {
+                return "<native fn>";
+            }
+        });
+
+        globals.define("split", new BazingaCallable() {
+            @Override
+            public int arity() {
+                return 2;
+            }
+
+            @Override
+            public Object call(Interpreter interpreter, List<Object> arguments) {
+                String string = (String) arguments.get(0);
+                String separator = (String) arguments.get(1);
+                String[] splitted = string.split(separator);
+
+                return new BazingaArray(splitted);
+            }
+
+            @Override
+            public String toString() {
+                return "<native fn>";
+            }
+        });
+
         globals.define("stringToArray", new BazingaCallable() {
             @Override
             public int arity() {
