@@ -327,11 +327,15 @@ public class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
     }
 
     private boolean isTruthy(Object object) {
-        // everything is true except for null and false.
+        // everything is true except for null, false and 0.
         if (object == null)
             return false;
         if (object instanceof Boolean)
             return (boolean) object;
+        if (object instanceof Double) {
+            if ((Double) object == 0)
+                return false;
+        }
         return true;
     }
 
