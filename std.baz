@@ -39,4 +39,29 @@ class LinkedList {
 
 }
 
-// TODO: Any data type -> String function
+// ---- contains(array, target) ----
+fun contains(array, target) {
+    var found = false;
+    
+    for (var i = 0; i < array.length; i = i + 1) {
+        if (array.get(i) == target) {
+            found = true;
+        }
+    }
+
+    bazinga found;
+}
+
+// ---- convertArrayToNumbersArray(array) ----
+fun convertArrayToNumbersArray(array) {
+
+    var numbersArray = Array(array.length);
+
+    for (var i = 0; i < array.length; i = i + 1) {
+        var value = Number(array.get(i));
+        numbersArray.set(i, value);
+    }
+
+    bazinga numbersArray;
+
+}
