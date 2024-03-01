@@ -28,7 +28,7 @@ public class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
             }
         });
 
-        globals.define("number", new BazingaCallable() {
+        globals.define("Number", new BazingaCallable() {
             @Override
             public int arity() {
                 return 1;
@@ -79,7 +79,7 @@ public class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
             }
         });
 
-        globals.define("stringToArray", new BazingaCallable() {
+        globals.define("String", new BazingaCallable() {
             @Override
             public int arity() {
                 return 1;
@@ -87,10 +87,20 @@ public class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
 
             @Override
             public Object call(Interpreter interpreter, List<Object> arguments) {
-                String string = (String) arguments.get(0);
-                Object[] stringArray = string.split("");
+                Object obj = arguments.get(0);
 
-                return new BazingaArray(stringArray);
+                if (obj instanceof Double)
+                    return String.valueOf((Double) obj);
+                else if (obj instanceof Boolean) {
+                    Boolean bool = (Boolean) obj;
+                    if (bool) {
+                        return "true";
+                    } else {
+                        return "false";
+                    }
+                }
+
+                throw new RuntimeError("Unsupported type.");
             }
 
             @Override
