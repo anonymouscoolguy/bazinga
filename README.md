@@ -98,8 +98,9 @@ dog.talk();
 
 ### Native Functions
 - `print` (this is the only function that does not have paranthesis)
-- `Array(size)`
+- `Array(size)` (this as the additional .get(index) and .set(index, value) methods)
 - `Number(value)`
 - `split(array)`
 - `String(value)`
 - `readFile(path)`
+- `type(value)`
