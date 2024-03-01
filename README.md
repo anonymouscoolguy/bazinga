@@ -103,7 +103,7 @@ Some popular keywords were changed to resemble the famous show.
 - `return` -> `bazinga`
 - `var` -> `spot`
 
-If you have ideas for changing some other keywords, all you have to do it edit the `Scanner.java` file :D
+If you have ideas for changing some other keywords, all you have to do is edit the `Scanner.java` file :D
 
 ### Native Functions
 - `print` (this is the only function that does not have paranthesis)
