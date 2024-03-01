@@ -16,13 +16,12 @@ public class Bazinga {
 
     public static void main(String[] args) throws IOException {
         if (args.length > 1) {
-            System.out.println("Usage: bazinga [file_name.baz]");
+            System.out.println("Usage: java Bazinga.java [file_name.baz]");
             System.exit(64); // Exit codes convention: https://man.freebsd.org/cgi/man.cgi?query=sysexits
         } else if (args.length == 1) {
             runFile(args[0]);
         } else {
-            // runPrompt();
-            runFile("dummy.baz");
+            runPrompt();
         }
     }
 
@@ -83,7 +82,11 @@ public class Bazinga {
     }
 
     static void runtimeError(RuntimeError error) {
-        System.err.println(error.getMessage() + "\n[line " + error.token.line + "]");
+        if (error.token == null) {
+            System.err.println(error.getMessage());
+        } else {
+            System.err.println("[line " + error.token.line + "] " + error.getMessage());
+        }
         hadRuntimeError = true;
     }
 
