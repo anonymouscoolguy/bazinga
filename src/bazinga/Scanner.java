@@ -23,12 +23,12 @@ public class Scanner {
         keywords.put("if", TokenType.IF);
         keywords.put("nil", TokenType.NIL);
         keywords.put("or", TokenType.OR);
-        keywords.put("print", TokenType.PRINT);
+        keywords.put("eureka", TokenType.PRINT);
         keywords.put("bazinga", TokenType.RETURN);
         keywords.put("super", TokenType.SUPER);
         keywords.put("this", TokenType.THIS);
         keywords.put("true", TokenType.TRUE);
-        keywords.put("var", TokenType.VAR);
+        keywords.put("spot", TokenType.VAR);
         keywords.put("while", TokenType.WHILE);
     }
 
