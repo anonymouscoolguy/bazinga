@@ -32,7 +32,7 @@ class LinkedList {
     toString() {
         var currentNode = this.head;
         while (currentNode != nil) {
-            print currentNode.data;
+            eureka currentNode.data;
             currentNode = currentNode.next;
         }
     }
