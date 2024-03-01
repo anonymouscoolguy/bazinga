@@ -101,4 +101,5 @@ dog.talk();
 - `Array(size)`
 - `Number(value)`
 - `split(array)`
+- `String(value)`
 - `readFile(path)`
