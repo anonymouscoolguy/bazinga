@@ -70,7 +70,12 @@ public class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
                 String separator = (String) arguments.get(1);
                 String[] splitted = string.split(separator);
 
-                return new BazingaArray(splitted);
+                Object[] objectArray = new Object[splitted.length];
+                for (int i = 0; i < splitted.length; i++) {
+                    objectArray[i] = splitted[i];
+                }
+
+                return new BazingaArray(objectArray);
             }
 
             @Override
@@ -126,6 +131,33 @@ public class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
                 }
 
                 return content;
+            }
+        });
+
+        globals.define("type", new BazingaCallable() {
+            @Override
+            public int arity() {
+                return 1;
+            }
+
+            @Override
+            public Object call(Interpreter interpreter, List<Object> arguments) {
+                Object obj = arguments.get(0);
+
+                if (obj instanceof Double)
+                    return "Number";
+                else if (obj instanceof String) {
+                    return "String";
+                } else if (obj instanceof Boolean) {
+                    return "Boolean";
+                } else {
+                    return "Abstract Data Type";
+                }
+            }
+
+            @Override
+            public String toString() {
+                return "<native fn>";
             }
         });
     }
