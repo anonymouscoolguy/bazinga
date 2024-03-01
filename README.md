@@ -104,3 +104,6 @@ dog.talk();
 - `String(value)`
 - `readFile(path)`
 - `type(value)`
+
+## Credits
+This programming language would probably not exist if it was not for the incredible book, *Crafting Interpreters* by Robert Nystrom. The book is very well-structured and I would totally recommend it for anyone interested in building an interpreter. There is a paid physical copy of the book or a totally free web option, which you can find [here](http://craftinginterpreters.com/).
