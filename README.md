@@ -97,7 +97,7 @@ dog.talk();
 ```
 
 #### Changed keywords
-I popular keywords were changed to resemble the famous show.
+Some popular keywords were changed to resemble the famous show.
 
 - `print` -> `eureka`
 - `return` -> `bazinga`
