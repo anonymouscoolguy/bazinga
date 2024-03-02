@@ -47,6 +47,8 @@ public class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
                     } else {
                         return (Double) 0.0;
                     }
+                } else if (obj instanceof Double) {
+                    return (Double) obj;
                 }
 
                 throw new RuntimeError("Unsupported type.");
@@ -103,6 +105,8 @@ public class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
                     } else {
                         return "false";
                     }
+                } else if (obj instanceof String) {
+                    return (String) obj;
                 }
 
                 throw new RuntimeError("Unsupported type.");
