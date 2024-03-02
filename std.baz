@@ -113,3 +113,17 @@ fun convertArrayToLinkedList(array) {
     }
     bazinga ll;
 }
+
+// ---- convertLinkedListToArray(linkedList) ----
+fun convertLinkedListToArray(linkedList) {
+    spot arr = Array(linkedList.size);
+    spot currentNode = linkedList.head;
+    spot currentIndex = 0;
+    while (currentNode != nil) {
+        arr.set(currentIndex, currentNode.data);
+        currentNode = currentNode.next;
+        currentIndex = currentIndex + 1;
+    }
+
+    bazinga arr;
+}
