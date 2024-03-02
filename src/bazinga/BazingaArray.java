@@ -27,6 +27,12 @@ public class BazingaArray extends BazingaInstance {
                 @Override
                 public Object call(Interpreter interpreter, List<Object> arguments) {
                     int index = (int) (double) arguments.get(0);
+                    int length = elements.length;
+                    if (index > length - 1) {
+                        throw new RuntimeError(name, "Index " + index + " is out of range. " +
+                                "The length of the array is " + length + ".");
+                    }
+
                     return elements[index];
                 }
             };
