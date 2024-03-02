@@ -62,10 +62,19 @@ class LinkedList {
 
     toString() {
         spot currentNode = this.head;
+        spot outputString = "[";
         while (currentNode != nil) {
             eureka currentNode.data;
+            outputString = outputString + String(currentNode.data);
+            if (currentNode.next != nil) {
+                outputString = outputString + ", ";
+            }
+            
             currentNode = currentNode.next;
         }
+        outputString = outputString + "]";
+
+        bazinga outputString;
     }
 
 }
