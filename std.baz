@@ -136,3 +136,16 @@ fun cutArray(array, startingIndex, endIndex) {
     }
     bazinga newArray;
 }
+
+// ---- sort(array) ----
+fun sort(array) {
+    for (spot i = 1; i < array.length; i = i + 1) {
+        spot j = i;
+        while (j > 0 and array.get(j) < array.get(j-1)) {
+            spot tmp = array.get(j);
+            array.set(j, array.get(j-1));
+            array.set(j-1, tmp);
+            j = j - 1;
+        }
+    }
+}
