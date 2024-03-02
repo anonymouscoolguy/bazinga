@@ -127,3 +127,12 @@ fun convertLinkedListToArray(linkedList) {
 
     bazinga arr;
 }
+
+// ---- cutArray(array, startingIndex, endIndex) ----
+fun cutArray(array, startingIndex, endIndex) {
+    spot newArray = Array(endIndex - startingIndex + 1);
+    for (spot i = 0; i < newArray.length; i = i + 1) {
+        newArray.set(i, array.get(i + startingIndex));
+    }
+    bazinga newArray;
+}
