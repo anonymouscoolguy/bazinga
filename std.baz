@@ -64,7 +64,6 @@ class LinkedList {
         spot currentNode = this.head;
         spot outputString = "[";
         while (currentNode != nil) {
-            eureka currentNode.data;
             outputString = outputString + String(currentNode.data);
             if (currentNode.next != nil) {
                 outputString = outputString + ", ";
@@ -104,4 +103,13 @@ fun convertArrayToNumbersArray(array) {
 
     bazinga numbersArray;
 
+}
+
+// ---- convertArrayToLinkedList(array) ----
+fun convertArrayToLinkedList(array) {
+    spot ll = LinkedList();
+    for (spot i = 0; i < array.length; i = i + 1) {
+        ll.append(array.get(i));
+    }
+    bazinga ll;
 }
