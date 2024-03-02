@@ -60,6 +60,24 @@ public class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
             }
         });
 
+        globals.define("floor", new BazingaCallable() {
+            @Override
+            public int arity() {
+                return 1;
+            }
+
+            @Override
+            public Object call(Interpreter interpreter, List<Object> arguments) {
+                Object value = arguments.get(0);
+
+                if (value instanceof Double) {
+                    return Math.floor((Double) value);
+                }
+
+                throw new RuntimeError("Unsupported type.");
+            }
+        });
+
         globals.define("split", new BazingaCallable() {
             @Override
             public int arity() {
