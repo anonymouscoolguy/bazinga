@@ -109,6 +109,7 @@ If you have ideas for changing some other keywords, all you have to do is edit t
 - `print` (this is the only function that does not have paranthesis)
 - `Array(size)` (this as the additional `.get(index)` and `.set(index, value)` methods)
 - `Number(value)`
+- `floor(value)`
 - `split(array)`
 - `String(value)`
 - `readFile(path)`
