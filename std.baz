@@ -60,6 +60,27 @@ class LinkedList {
         bazinga nil;
     }
 
+    remove(index) {
+        spot currentNode = this.head;
+        spot currentIndex = 0;
+        if (index == 0) {
+            this.head = currentNode.next;
+            this.size = this.size - 1;
+            bazinga currentNode.data;
+        } else {
+            while (currentNode.next != nil) {
+                if (currentIndex == index - 1) {
+                    spot removed = currentNode.next;
+                    currentNode.next = currentNode.next.next;
+                    this.size = this.size - 1;
+                    bazinga removed.data;
+                }
+                currentNode = currentNode.next;
+                currentIndex = currentIndex + 1;
+            }
+        } 
+    } 
+
     toString() {
         spot currentNode = this.head;
         spot outputString = "[";
@@ -74,6 +95,42 @@ class LinkedList {
         outputString = outputString + "]";
 
         bazinga outputString;
+    }
+
+}
+
+// ---- Stack ----
+class Stack {
+
+    init() {
+        this.linkedList = LinkedList();
+    }
+
+    isEmpty() {
+        if (this.linkedList.size == 0) {
+            bazinga true;
+        }
+        bazinga false;
+    }
+
+    push(data) {
+        this.linkedList.append(data);
+    }
+
+    pop() {
+        bazinga this.linkedList.remove(this.linkedList.size - 1);
+    }
+
+    peek() {
+        bazinga this.linkedList.get(this.linkedList.size - 1);
+    }
+
+    size() {
+        bazinga this.linkedList.size;
+    }
+
+    toString() {
+        bazinga this.linkedList.toString();
     }
 
 }
