@@ -132,7 +132,41 @@ class Stack {
     toString() {
         bazinga this.linkedList.toString();
     }
+}
 
+// ---- Queue ----
+class Queue {
+
+    init() {
+        this.linkedList = LinkedList();
+    }
+
+    isEmpty() {
+        if (this.linkedList.size == 0) {
+            bazinga true;
+        }
+        bazinga false;
+    }
+
+    enqueue(data) {
+        this.linkedList.append(data);
+    }
+
+    dequeue() {
+        bazinga this.linkedList.remove(0);
+    }
+
+    peek() {
+        bazinga this.linkedList.get(0);
+    }
+
+    size() {
+        bazinga this.linkedList.size;
+    }
+
+    toString() {
+        bazinga this.linkedList.toString();
+    }
 }
 
 // ---- contains(array, target) ----
